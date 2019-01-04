@@ -29,7 +29,8 @@ class Mice():
                         potential_steps.append((self.current_position[0],self.current_position[1]-1))
                     else:
                         continue
-
+                # Here we could chek on archive_path if the path hasn't already been made in that order
+                # by running a for loop, where iter goes [:iter]
                 decided_step = choice(potential_steps)
 
                 if decided_step in self.maze.wall_coord or decided_step in self.maze.obstacle_coord:
