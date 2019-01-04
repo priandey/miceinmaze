@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*
+
 from .maze import Maze
 from random import choice
 

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*
+
 class Maze():
     def __init__(self):
         self.structure = list()
@@ -44,6 +46,8 @@ class Maze():
                         inter += 'R'
                     elif entry in self.wall_coord:
                         inter += 'O'
+                    elif entry in self.obstacle_coord:
+                        inter += "X"
                     else:
                         inter += '#'
                 print(inter)
