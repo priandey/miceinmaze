@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*
+
 class Maze():
     def __init__(self):
         self.structure = list()
