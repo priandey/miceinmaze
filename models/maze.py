@@ -50,3 +50,6 @@ class Maze():
         else:
             for line in self.structure:
                 print(line)
+
+
+#Nothing to see here, just a test
