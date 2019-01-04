@@ -1,5 +1,5 @@
 import models as m
-
+import timeit
 def main():
     maze = m.Maze()
     maze.std_structure()
@@ -7,7 +7,7 @@ def main():
     maze.get_end_point()
     #maze.print_structure()
     mice = m.Mice(maze)
-    result = mice.get_path()
+    timeit.timeit(result = mice.get_path())
     print(result)
     # Initialize maze
     # Get input from user : number of steps & number of obstacles & endpoint

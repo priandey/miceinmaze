@@ -10,17 +10,12 @@ class Mice():
         self.path = []
 
     def get_path(self, motion_limit=6):
-        archived_path = []
         condition = False
-        iter = 0
         while not condition:
+            print('\n')
             self.current_position = self.start_point
-            archive_id = 0
-            archive_check = False
             path = []
-            archived_path.append(path)
             while len(path) != motion_limit:
-                adding = False
                 potential_steps = list()
 
                 for line in self.maze.structure:
@@ -36,30 +31,21 @@ class Mice():
                         continue
                 # Here we could chek on archive_path if the path hasn't already been made in that order
                 # by running a for loop, where iter goes [:iter]
-                    '''if (len(archived_path)) > 1:
-                        while not archive_check:
-                            print("Archive")
-                            decided_step = choice(potential_steps)
-                            for old_path in archived_path:
-                                if path[:archive_id] != old_path[:archive_id]:
-                                    print("ARCHIVE CHECK")
-                                    archive_check = True
-                                else:
-                                    print("NOT ARCHIVE CHECK")
-                                    continue
-                    else:'''
-                decided_step = choice(potential_steps)
 
+                decided_step = choice(potential_steps)
+                if decided_step in path:
+                    print("BEEN THERE")
+                    continue
                 if decided_step in self.maze.wall_coord or decided_step in self.maze.obstacle_coord:
-                    print("going through wall")
+                    print("BOUMWALL")
                     continue
                 else:
                     self.current_position = decided_step
                     path.append(decided_step)
-                    archive_id += 1
+
                     print(path)
 
-            if path[-1] == self.end_point:
+            if self.end_point in path:
                 condition = True
             else:
                 continue
