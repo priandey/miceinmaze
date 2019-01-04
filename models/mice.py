@@ -14,8 +14,8 @@ class Mice():
     def get_path(self, motion_limit=6):
         path = []
         condition = False
-        self.current_position = self.start_point
         while not condition:
+            self.current_position = self.start_point
             for steps in range(motion_limit):
 
                 potential_steps = list()
@@ -30,12 +30,13 @@ class Mice():
                     if (self.current_position[0],self.current_position[1]-1) in line:
                         potential_steps.append((self.current_position[0],self.current_position[1]-1))
                     else:
-                        continue
+                        break
 
                 decided_step = choice(potential_steps)
 
                 if decided_step in self.maze.wall_coord or decided_step in self.maze.obstacle_coord:
-                    continue
+                    break
+
 
                 # move randomly 1 steps if step in Maze
                 # record step in Path
