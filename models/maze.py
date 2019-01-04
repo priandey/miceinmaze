@@ -6,7 +6,7 @@ class Maze():
         self.start_point = tuple()
         self.end_point = tuple()
         self.wall_coord = [(1, 1), (1, 3), (1, 5), (3, 1), (3, 3), (3, 5), (5, 1), (5, 3), (5, 5)]
-        self.obstacle_coord = tuple()
+        self.obstacle_coord = list()
 
     def get_end_point(self):
         noerror = False
