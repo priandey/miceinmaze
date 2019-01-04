@@ -53,3 +53,6 @@ class Maze():
 
 
 #Nothing to see here, just a test
+#an other test ?
+#or not
+#J'essaie de stage 
