@@ -59,7 +59,7 @@ def astar(maze, start, end):
 
             # Get node position
             node_position = (current_node.position[0] + new_position[0], current_node.position[1] + new_position[1])
-
+            print(node_position)
             # Make sure within range
             if node_position[0] > (len(maze) - 1) or node_position[0] < 0 or node_position[1] > (len(maze[len(maze)-1]) -1) or node_position[1] < 0:
                 continue
@@ -78,9 +78,8 @@ def astar(maze, start, end):
         for child in children:
 
             # Child is on the closed list
-            @timeout(4)
             for closed_child in closed_list:
-                print(child.position, closed_child.position)
+                print(child.position == closed_child.position)
                 if child.position == closed_child.position:
                     continue
 
@@ -101,15 +100,15 @@ def astar(maze, start, end):
 def main():
 
     maze = [[0, 0, 0, 0, 0, 0, 0],
-            [0, 1, 0, 1, 1, 1, 0],
+            [0, 1, 1, 1, 0, 1, 1],
             [0, 0, 0, 0, 0, 0, 0],
-            [1, 1, 1, 1, 0, 1, 0],
-            [0, 0, 0, 1, 0, 0, 0],
-            [0, 1, 0, 1, 0, 1, 0],
+            [1, 1, 0, 1, 1, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 1, 1, 1, 0, 1, 0],
             [0, 0, 0, 0, 0, 0, 0]]
 
     start = (6, 0)
-    end = (0, 2)
+    end = (0, 6)
 
     path = astar(maze, start, end)
     print(path)
