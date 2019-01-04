@@ -7,10 +7,10 @@ def main():
     maze.std_structure()
     maze.print_structure(True) # Passer "True" en parametre pour afficher les coordonnees de chaque passage au lieu de '#'
 
-    #maze.print_structure(True) # Passer "True" en parametre pour afficher les coordonnées de chaque passage au lieu de '#'
+    maze.print_structure(True) # Passer "True" en parametre pour afficher les coordonnées de chaque passage au lieu de '#'
 
-    maze.get_end_point()
-    #maze.print_structure()
+    #maze.get_end_point()
+    maze.print_structure()
     mice = m.Mice(maze)
     result = mice.get_path()
     print(result)

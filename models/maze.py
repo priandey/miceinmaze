@@ -6,7 +6,7 @@ class Maze():
         self.y_range = 7
         self.x_range = 7
         self.start_point = tuple()
-        self.end_point = tuple()
+        self.end_point = [0,0]
         self.wall_coord = [(1, 1), (1, 3), (1, 5), (3, 1), (3, 3), (3, 5), (5, 1), (5, 3), (5, 5)]
         self.obstacle_coord = list()
 
