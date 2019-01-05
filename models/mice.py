@@ -12,12 +12,12 @@ class Mice():
         self.path = []
 
     def get_path(self, motion_limit=6):
-        path = []
         condition = False
         while not condition:
+            print('\n')
             self.current_position = self.start_point
+            path = []
             while len(path) != motion_limit:
-                adding = False
                 potential_steps = list()
 
                 for line in self.maze.structure:
@@ -33,14 +33,24 @@ class Mice():
                         continue
                 # Here we could chek on archive_path if the path hasn't already been made in that order
                 # by running a for loop, where iter goes [:iter]
-                decided_step = choice(potential_steps)
 
+                decided_step = choice(potential_steps)
+                if decided_step in path:
+                    print("BEEN THERE")
+                    continue
                 if decided_step in self.maze.wall_coord or decided_step in self.maze.obstacle_coord:
+                    print("BOUMWALL")
                     continue
                 else:
                     self.current_position = decided_step
                     path.append(decided_step)
-                    condition = True
+
+                    print(path)
+
+            if self.end_point in path:
+                condition = True
+            else:
+                continue
 
         return path
                 # move randomly 1 steps if step in Maze
